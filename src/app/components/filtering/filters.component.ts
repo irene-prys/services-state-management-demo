@@ -20,8 +20,6 @@ export class FilterComponent {
   }
 
   logChangeDetection() {
-    console.log('...ch/d in filtering...' + JSON.stringify(this.todos.list) + ' | filter: ' + JSON.stringify(this.todoFilter));
+    console.log('...ch/d in filtering...');
   }
-
-
 }

@@ -15,11 +15,6 @@ export class TodoComponent {
     //  this.ref.detach();
   }
 
-  logChangeDetection() {
-    console.log('...change detection...' + JSON.stringify(this.todoList));
-    console.count('change detection');
-  }
-
   public get todoList() {
     return this.todos.list.filter(item => {
       if (!this.isSatisfySerchFilter(item, this.filter.searchFilter)) {
@@ -33,6 +28,10 @@ export class TodoComponent {
     });
   }
 
+  public get isTodoEmpty() {
+    return this.todos.list.length === 0;
+  }
+
   private isSatisfySerchFilter(todoItem, serchFilter: string) {
     if (serchFilter.trim().length === 0) {
       return true;
@@ -41,16 +40,7 @@ export class TodoComponent {
     return todoItem.title.includes(serchFilter);
   }
 
-  public get isTodoEmpty() {
-    return this.todos.list.length === 0;
-  }
-
-  add(event) {
-    // this.ref.detach();
-    //  console.log('...');
-    if (event.keyCode === 13) {
-      this.todos.addNew(event.target.value);
-      console.log('-------');
-    }
-  }
+  logChangeDetection() {
+    console.log('...ch/d in list...' + JSON.stringify(this.todoList));
+  }  
 }
